@@ -1,0 +1,16 @@
+package Main;
+
+public class SubMain {
+
+	public static void main(String[] args) {
+		
+		Main Arri = new Main();
+		
+		System.out.println(Arri.add);
+		System.out.println(Arri.sub);
+		System.out.println(Arri.mul);
+		System.out.println(Arri.div);
+		System.out.println(Arri.mod);
+	}
+
+}
