@@ -1,25 +1,63 @@
-package Main;
-
 import java.util.Scanner;
 
-public class Main {
+// Class 1: Calculator
+class Calculator {
+     int num1;
+     int num2;
 
-	Scanner sc = new Scanner(System.in);
-	
-	
-	int num1 = sc.nextInt();
-	
-	int num2 = sc.nextInt();
-	
-	int add = num1 + num2;
-	
-	int sub = num1 - num2;
-	
-	int mul = num1 * num2;
-	
-	int div = num1 / num2;
-	
-	int mod = num1 % num2;
-	
-	
+    public Calculator(int num1, int num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+
+    int add() {
+        return num1 + num2;
+    }
+
+    int subtract() {
+        return num1 - num2;
+    }
+
+    int multiply() {
+        return num1 * num2;
+    }
+
+    int divide() {
+        if (num2 == 0) {
+            System.out.println("Error: Division by zero.");
+            return 0;
+        }
+        return num1 / num2;
+    }
+
+    int modulus() {
+        if (num2 == 0) {
+            System.out.println("Error: Modulus by zero.");
+            return 0;
+        }
+        return num1 % num2;
+    }
+}
+
+// Class 2: Main
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the first integer: ");
+        int num1 = sc.nextInt();
+
+        System.out.print("Enter the second integer: ");
+        int num2 = sc.nextInt();
+
+        Calculator calculator = new Calculator(num1, num2);
+
+        System.out.println("Result of Addition: " + calculator.add());
+        System.out.println("Result of Subtraction: " + calculator.subtract());
+        System.out.println("Result of Multiplication: " + calculator.multiply());
+        System.out.println("Result of Division: " + calculator.divide());
+        System.out.println("Result of Modulus: " + calculator.modulus());
+
+        sc.close();
+    }
 }
