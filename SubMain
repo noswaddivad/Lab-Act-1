@@ -1,16 +1,68 @@
-package Main;
+import java.util.Scanner;
 
-public class SubMain {
+// Class 1: Calculator
+class Calculator {
+    // Instance variables to store two numbers
+     double num1;
+     double num2;
 
-	public static void main(String[] args) {
-		
-		Main Arri = new Main();
-		
-		System.out.println(Arri.add);
-		System.out.println(Arri.sub);
-		System.out.println(Arri.mul);
-		System.out.println(Arri.div);
-		System.out.println(Arri.mod);
-	}
+    // Constructor to initialize the Calculator object with two numbers
+    Calculator(double num1, double num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
 
+    // Method to perform addition
+     double add() {
+        return num1 + num2;
+    }
+
+    // Method to perform subtraction
+     double subtract() {
+        return num1 - num2;
+    }
+
+    // Method to perform multiplication
+     double multiply() {
+        return num1 * num2;
+    }
+
+    // Method to perform division
+     double divide() {
+        if (num2 == 0) {
+            System.out.println("Error: Division by zero.");
+            return Double.NaN; // Return NaN (Not-a-Number) for division by zero
+        }
+        return num1 / num2;
+    }
+     
+     double modulo() {
+    	 return num1 % num2;
+     }
+}
+
+// Class 2: Main
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Prompt the user to enter two numbers
+        System.out.print("Enter the first number: ");
+        double num1 = sc.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = sc.nextDouble();
+
+        // Create a Calculator object with the user's input
+        Calculator calculator = new Calculator(num1, num2);
+
+        // Perform arithmetic operations and display the results
+        System.out.println("Result of Addition: " + calculator.add());
+        System.out.println("Result of Subtraction: " + calculator.subtract());
+        System.out.println("Result of Multiplication: " + calculator.multiply());
+        System.out.println("Result of Division: " + calculator.divide());
+        System.out.println("Result of Modulo: " + calculator.modulo());
+
+        sc.close(); // Close the Scanner object
+    }
 }
